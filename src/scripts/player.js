@@ -30,6 +30,11 @@ export default class Player {
         }, true);
     }
 
+    destroy(bullet) {
+        const foundIdx = this.bullets.indexOf(bullet);
+        this.bullets.splice(foundIdx, 1);
+    }
+
     draw(ctx) {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, 25, 25);

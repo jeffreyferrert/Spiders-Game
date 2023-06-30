@@ -2,7 +2,8 @@ export default class Obstacle{
     constructor (options) {
         this.x = options.x;
         this.y = options.y;
-        this.color = "gray";
+        this.color = "#003049";
+        this.counter = 0;
     }
 
     draw = function(ctx) {

@@ -2,6 +2,7 @@ import Board from "./board.js";
 import Spiders from "./spiders.js";
 import Player from './player';
 import Obstacles from "./obstacles.js";
+import Obstacle from "./obstacle.js";  //crea 1 bloque
 import { getDistance } from "./helper_functions";
 
 export default class GameView {
@@ -18,13 +19,33 @@ export default class GameView {
                 const [x1, y1] = [obstacle.x, obstacle.y];
                 const [x2, y2] = [bullet.x, bullet.y];
                 const dist = getDistance(x1, y1, x2, y2);
-                if (dist < 20) {
-                    // obstacle.color = "red";
-                    this.obstacles.destroy(obstacle);
+                if (dist < 10) {
+                    this.obstacles.hit(obstacle);
+                    this.player.destroy(bullet);
                 }
             });
 
+            this.player.bullets.forEach(bullet => {
+                this.spiders.spiders.forEach(spider => {
+                    const [x1, y1] = [spider.x, spider.y];
+                    const [x2, y2] = [bullet.x, bullet.y];
+                    const dist = getDistance(x1, y1, x2, y2);
+                    if (dist < 10) {
+                        this.spiders.destroy(spider);
+                        this.player.destroy(bullet);
+                        this.newBlock(x1, y1);
+                    } 
+                })
+            });
+
         });
+    }
+
+    newBlock(x1, y1) {
+        let x = Math.floor(x1/20)*20;
+        let y = Math.floor(y1/20)*20;
+        const newObstacle = new Obstacle({x: x, y: y});
+        this.obstacles.obstacles.push(newObstacle)
     }
     
     draw(ctx) {

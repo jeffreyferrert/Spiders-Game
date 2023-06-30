@@ -22,6 +22,11 @@ export default class Spiders {
         }
     }
 
+    destroy(spider) {
+        const foundIdx = this.spiders.indexOf(spider);
+        this.spiders.splice(foundIdx, 1);
+    }
+
     draw(ctx) {
         this.spiders.forEach(spider => {
             if (spider.x >= 700 || spider.x < 0) {
@@ -30,7 +35,6 @@ export default class Spiders {
             spider.move();
             spider.draw(ctx);
         });
-
     }
 }
 

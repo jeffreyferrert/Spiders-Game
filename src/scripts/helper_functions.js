@@ -12,7 +12,7 @@ export function setIntervalX(callback, delay, repetitions) {
 
 
 export function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor((Math.random() * (max - min) + min) / 20) * 20;
 }
  
 export function getDistance(xpos1, ypos1, xpos2, ypos2) {
