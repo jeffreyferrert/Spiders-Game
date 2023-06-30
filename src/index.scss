@@ -1,5 +1,27 @@
-@import "./styles/example.scss"; // import the file from our styles so it will be bundled
+h1 {
+    color: brown;
+    font-weight: bold;
+}
 
-#main {
-    color: $color; // $color was defined in example.scss, which we can use because it's imported before we hit this
+#canvas-wrap {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    display: block;
+    width: 700px;
+}
+
+canvas {
+    border: 5px solid brown;
+    /* margin: auto;
+    display: block; */
+   
+}
+
+
+body {
+    background-color: #E5CEB5;
 }
