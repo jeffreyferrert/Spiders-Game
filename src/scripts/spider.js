@@ -2,7 +2,7 @@ export default class Spider{
     constructor (options) {
         this.x = options.x;
         this.y = options.y;
-        this.x_move = 5;
+        this.x_move = 4;
         this.radius = 10;
         this.color = "brown";
     }

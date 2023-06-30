@@ -3,7 +3,7 @@ import Spiders from "./spiders.js";
 import Player from './player';
 import Obstacles from "./obstacles.js";
 import Obstacle from "./obstacle.js";  //crea 1 bloque
-import { getDistance } from "./helper_functions";
+import { getDistance, getHorizontalDistance } from "./helper_functions";
 
 export default class GameView {
     constructor(options) {
@@ -19,26 +19,40 @@ export default class GameView {
                 const [x1, y1] = [obstacle.x, obstacle.y];
                 const [x2, y2] = [bullet.x, bullet.y];
                 const dist = getDistance(x1, y1, x2, y2);
-                if (dist < 10) {
+                if (dist < 20) {
                     this.obstacles.hit(obstacle);
                     this.player.destroy(bullet);
                 }
             });
 
-            this.player.bullets.forEach(bullet => {
-                this.spiders.spiders.forEach(spider => {
-                    const [x1, y1] = [spider.x, spider.y];
-                    const [x2, y2] = [bullet.x, bullet.y];
-                    const dist = getDistance(x1, y1, x2, y2);
-                    if (dist < 10) {
-                        this.spiders.destroy(spider);
-                        this.player.destroy(bullet);
-                        this.newBlock(x1, y1);
-                    } 
-                })
-            });
-
+            this.spiders.spiders.forEach(spider => {
+                const [x1, y1] = [spider.x, spider.y];
+                const [x2, y2] = [bullet.x, bullet.y];
+                const dist = getDistance(x1, y1, x2, y2);
+                if (dist < 20) {
+                    this.spiders.destroy(spider);
+                    this.player.destroy(bullet);
+                    this.newBlock(x1, y1);
+                } 
+            })
         });
+
+        this.spiders.spiders.forEach(spider => {
+            this.obstacles.obstacles.forEach(obstacle => {
+                const [x1, y1] = [obstacle.x, obstacle.y]; 
+                const [x2, y2] = [spider.x, spider.y];
+                const dist = getHorizontalDistance(x1, y1, x2, y2);
+                if (dist > 0 && dist < 30) {
+                    console.log('derecha');
+                    spider.y += 20;
+                } else if (dist > -10 && dist < 0) {
+                    console.log('izquierda');
+                    spider.y += 20;
+
+                }
+            })
+        });
+
     }
 
     newBlock(x1, y1) {
