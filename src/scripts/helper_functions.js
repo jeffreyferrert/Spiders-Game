@@ -21,7 +21,7 @@ export function getDistance(xpos1, ypos1, xpos2, ypos2) {
 }
 
 export function getHorizontalDistance(xpos1, ypos1, xpos2, ypos2) {
-    if (ypos1 + 10 === ypos2) {
+    if (ypos1 === ypos2) {
         if (xpos1 < xpos2) {
         return xpos2 - xpos1;
             
@@ -30,3 +30,7 @@ export function getHorizontalDistance(xpos1, ypos1, xpos2, ypos2) {
         }
     }
 }
+
+export function getRandom(max) {
+    return Math.floor(Math.random() * max);
+  }

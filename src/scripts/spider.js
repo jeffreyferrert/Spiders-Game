@@ -2,16 +2,14 @@ export default class Spider{
     constructor (options) {
         this.x = options.x;
         this.y = options.y;
-        this.x_move = 4;
-        this.radius = 10;
-        this.color = "brown";
+        this.x_move = 2 * options.direction;
+        this.image = new Image();
+        this.image.src = './src/assets/centipede.png';
+
     }
 
     draw = function(ctx) {
-        ctx.fillStyle = this.color
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-        ctx.fill();
+        ctx.drawImage(this.image, this.x, this.y, 20, 20);
     }
 
     move() {

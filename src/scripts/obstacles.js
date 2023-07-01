@@ -8,9 +8,9 @@ export default class Obstacles {
     }
 
     initialize() {
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 40; i++) {
             const newObstacle = new Obstacle({
-                x: helper_functions.getRandomInt(20, 680), //multiples of 20
+                x: helper_functions.getRandomInt(20, 680),
                 y: helper_functions.getRandomInt(20, 640)
             })
 
@@ -20,19 +20,25 @@ export default class Obstacles {
         }
     }
 
-    hit(obstacle, bullet) {
-        obstacle.counter++;
+    newBlock(x1, y1) {
+        let x = Math.floor(x1/20)*20;
+        let y = Math.floor(y1/20)*20;
+        const newObstacle = new Obstacle({x: x, y: y});
+        this.obstacles.push(newObstacle)
+    }
+
+    hit(obstacle) {
         switch (obstacle.counter++) {
+            case 0:
+                obstacle.image.src = './src/assets/mushroom2.png';
+                break;
             case 1:
-                obstacle.color = "#fcbf49";
+                obstacle.image.src = './src/assets/mushroom3.png';
+                break;
+            case 2:
+                obstacle.image.src = './src/assets/mushroom4.png';
                 break;
             case 3:
-                obstacle.color = "#f77f00";
-                break;
-            case 5:
-                obstacle.color = "#d62828";
-                break;
-            case 7:
                 this.destroy(obstacle);
                 break;
         } 

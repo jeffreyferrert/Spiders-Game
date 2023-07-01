@@ -2,12 +2,12 @@ export default class Obstacle{
     constructor (options) {
         this.x = options.x;
         this.y = options.y;
-        this.color = "#003049";
+        this.image = new Image();
+        this.image.src = './src/assets/mushroom1.png';
         this.counter = 0;
     }
 
     draw = function(ctx) {
-        ctx.fillStyle = this.color
-        ctx.fillRect(this.x, this.y, 20, 20);
+        ctx.drawImage(this.image, this.x, this.y, 20, 20);
     }
 }

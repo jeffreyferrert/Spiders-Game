@@ -3,8 +3,10 @@ import Bullet from "./bullet";
 export default class Player {
     constructor(options) {
         this.x = 350;
-        this.y = 670;
-        this.color = 'green';
+        this.y = 675;
+        this.image = new Image();
+        this.image.src = './src/assets/player.png';
+        // this.color = 'green';
         this.bullets = [];
 
         this.keyBind();
@@ -13,13 +15,13 @@ export default class Player {
     keyBind() {
         window.addEventListener('keydown', (e) => {
             if (e.key == "ArrowLeft" || e.key == "a") {
-                this.x -= 10;
+                if (this.x > 0)this.x -= 5;
             } else if (e.key == "ArrowRight" || e.key == "d") {
-                this.x += 10;
+                if (this.x < 675) this.x += 5;
             }else if (e.key == "ArrowUp" || e.key == "w") {
-                this.y -= 10;
+                if (this.y >= 650) this.y -= 5;
             } else if (e.key == "ArrowDown" || e.key == "s") {
-                this.y += 10;
+                if (this.y < 675) this.y += 5;
             } else if (e.key == " ") {
                 const newBullet = new Bullet({
                     x: this.x, 
@@ -36,8 +38,7 @@ export default class Player {
     }
 
     draw(ctx) {
-        ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, this.y, 25, 25);
+        ctx.drawImage(this.image, this.x, this.y, 25, 25);
 
         this.bullets.forEach(bullet => {
             if (bullet.y <= -10) {

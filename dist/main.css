@@ -1,3 +1,3 @@
-h1{color:brown;font-weight:bold}#canvas-wrap{position:relative;padding-left:0;padding-right:0;margin-left:auto;margin-right:auto;margin-top:50px;display:block;width:700px}body{background-color:#e5ceb5}
+h1{color:brown;font-weight:bold}#board-canvas{position:relative;display:block;border:2.5px solid #49fb35}body{background-color:#000}section{display:flex;justify-content:space-around;align-items:center;padding-top:30px}#instructions,#score{margin:auto;padding:10px;color:#fff;border:2.5px solid #49fb35;border-radius:10%}
 
 /*# sourceMappingURL=main.css.map*/

@@ -3,10 +3,10 @@ import * as helper_functions from "./helper_functions";
 
 export default class Spiders {
     constructor(options) {
-        this.x = helper_functions.getRandomInt(210, 700);
-        this.y = 10;
-        this.color = 'brown';
+        this.x = helper_functions.getRandomInt(200, 500);
+        this.y = 0;
         this.spiders = [];
+        this.direction = Math.pow(-1, helper_functions.getRandom(2));
 
         this.initialize();
     }
@@ -14,8 +14,9 @@ export default class Spiders {
     initialize() {
         for (let i = 0; i < 10; i++) {
             const newSpider = new Spider({
-                x: this.x - 20 * i,
-                y: this.y 
+                x: this.x + 20 * i * this.direction,
+                y: this.y,
+                direction: this.direction
             })
 
             this.spiders.push(newSpider);
@@ -29,7 +30,7 @@ export default class Spiders {
 
     draw(ctx) {
         this.spiders.forEach(spider => {
-            if (spider.x >= 700 || spider.x < 0) {
+            if (spider.x > 680 || spider.x < 0) {
                 spider.update();
             }
             spider.move();
