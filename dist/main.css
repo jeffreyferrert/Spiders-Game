@@ -1,3 +1,3 @@
-h1{color:brown;font-weight:bold}#board-canvas{position:relative;display:block;border:2.5px solid #49fb35}body{background-color:#000}section{display:flex;justify-content:space-around;align-items:center;padding-top:30px}#instructions,#score{margin:auto;padding:10px;color:#fff;border:2.5px solid #49fb35;border-radius:10%}
+h1{color:brown;font-weight:bold}#board-canvas{position:relative;display:block;border:2.5px solid #49fb35;border-radius:1%}#playerscore{font-size:30px;align-items:center}#images{width:20px;height:20px;align-items:center;margin:auto;padding:auto}ul>div{margin:5px}body{background-color:#000;font-family:"SF Atarian System",sans-serif;font-family:"SF Atarian System Extended",sans-serif}section{display:flex;justify-content:space-around;align-items:center;padding-top:30px}#instructions,#score{margin:auto;padding:10px;color:#fff;border:2.5px solid #49fb35;border-radius:2%}
 
 /*# sourceMappingURL=main.css.map*/

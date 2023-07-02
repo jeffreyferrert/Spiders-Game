@@ -28,6 +28,8 @@ export default class Player {
                     y: this.y
                 });
                 this.bullets.push(newBullet);
+            } else if (e.key == "Control") {
+                alert("Game in pause, press OK to continue")
             }
         }, true);
     }

@@ -11,7 +11,11 @@ export default class GameView {
         this.spiders = new Spiders();
         this.player = new Player();
         this.obstacles = new Obstacles();
+        this.points = 0;
+        this.userpoints = document.getElementById("playerscore");
+
     }
+    
 
     checkCollision() {
         this.player.bullets.forEach(bullet => {
@@ -21,6 +25,7 @@ export default class GameView {
                 const dist = getDistance(x1, y1, x2, y2);
                 if (dist <= 10) {
                     this.obstacles.hit(obstacle);
+                    this.points++;
                     this.player.destroy(bullet);
                 }
             });
@@ -33,6 +38,11 @@ export default class GameView {
                     this.spiders.destroy(spider);
                     this.player.destroy(bullet);
                     this.obstacles.newBlock(x1, y1);
+                    this.points += 10;
+                    if (this.spiders.spiders.length === 0) {
+                        this.points += 100;
+                        alert("LEVEL PASS");
+                    }
                 } 
             })
         });
@@ -54,17 +64,28 @@ export default class GameView {
         });
 
     }
+
+    gameover() {
+        this.spiders.spiders.forEach(spider => {
+            if (spider.y > 620) {
+                window.cancelAnimationFrame
+                alert("GAME OVER");
+            }
+        });
+    }
     
     draw(ctx) {
-        ctx.clearRect(0, 0, 700, 700);
+        this.userpoints.textContent = `Points: ${this.points}`;
 
+        ctx.clearRect(0, 0, 700, 700);
         this.board.draw(ctx);
         this.board2.drawLine(ctx);
         this.obstacles.draw(ctx);
         this.player.draw(ctx);
         this.spiders.draw(ctx);
-
         this.checkCollision();
+
+        this.gameover();
         requestAnimationFrame(this.draw.bind(this, ctx));
     }
     

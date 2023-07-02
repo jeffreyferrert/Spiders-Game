@@ -7,12 +7,31 @@ h1 {
     position: relative;
     display: block;
     border: 2.5px solid #49fb35;
+    border-radius: 1%;
+    // box-shadow: 0 0 5px 0px #96cbe7;
 }
 
+#playerscore {
+    font-size: 30px;
+    align-items: center;
+}
 
+#images {
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    margin: auto;
+    padding: auto;
+}
+
+ul > div {
+    margin: 5px;
+}
 
 body {
-    background-color: black; // #E5CEB5;
+    background-color: black; 
+    font-family: 'SF Atarian System', sans-serif;
+    font-family: 'SF Atarian System Extended', sans-serif;
 }
 
 section {
@@ -27,5 +46,5 @@ section {
     padding: 10px;
     color: white;
     border: 2.5px solid #49fb35;
-    border-radius: 10%;
+    border-radius: 2%;
 }
