@@ -13,11 +13,6 @@ class Board{
         ctx.fillRect(0, 640, 700, 1);
 
     }
-
-    drawPause(ctx){
-        ctx.fillStyle = "brown";
-        ctx.fillRect(0, 0, 700, 700);
-    }
 }
 
 export default Board

@@ -6,5 +6,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const gameview = new GameView()
     gameview.draw(ctx);
-
 });

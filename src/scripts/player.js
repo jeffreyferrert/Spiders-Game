@@ -34,15 +34,13 @@ export default class Player {
                     
                     setTimeout(() => {
                         this.firing = false;
-                    }, 400);
+                    }, 200);
                 }
                 
                 
                 
             } else if (e.key == "p") {
                 this.pause = !this.pause;
-                console.log(this.pause);
-                // alert("Game in pause, press OK to continue")
             }
         }, true);
     }

@@ -2,6 +2,8 @@ import Board from "./board.js";
 import Spiders from "./spiders.js";
 import Player from './player';
 import Obstacles from "./obstacles.js";
+import Pause from "./pause.js";
+import GameOver from "./gameOver.js";
 import { getDistance, getHorizontalDistance } from "./helper_functions";
 
 export default class GameView {
@@ -11,7 +13,10 @@ export default class GameView {
         this.spiders = new Spiders();
         this.player = new Player();
         this.obstacles = new Obstacles();
+        this.pause = new Pause();
+        this.gameove = new GameOver();
         this.points = 0;
+        this.gamestatus = "active"
         this.userpoints = document.getElementById("playerscore");
     }
     
@@ -66,7 +71,6 @@ export default class GameView {
                 const [x2, y2] = [spider2.x, spider2.y];
                 const dist = getHorizontalDistance(x1, y1, x2, y2);
                 if (spider != spider2 && y1 === y2 && dist % 20 != 0) {
-                    console.log(dist);                
                     spider.y += 20;
                 }
             })
@@ -79,7 +83,7 @@ export default class GameView {
         this.spiders.spiders.forEach(spider => {
             if (spider.y > 620) {
                 window.cancelAnimationFrame
-                alert("GAME OVER");
+                this.gamestatus = "over"
             }
         });
     }
@@ -89,8 +93,9 @@ export default class GameView {
         ctx.clearRect(0, 0, 700, 700);
 
         if (this.player.pause) {
-            //create a function for pause with information
-            this.board.drawPause(ctx);
+                this.pause.draw(ctx);
+        } else if (this.gamestatus === "over") {
+            this.gameove.draw(ctx);
         } else {
             this.board.draw(ctx);
             this.board2.drawLine(ctx);

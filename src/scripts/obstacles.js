@@ -8,10 +8,10 @@ export default class Obstacles {
     }
 
     initialize() {
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 35; i++) {
             const newObstacle = new Obstacle({
                 x: helper_functions.getRandomInt(20, 680),
-                y: helper_functions.getRandomInt(20, 640)
+                y: helper_functions.getRandomInt(0, 620)
             })
 
             if (!this.obstacles.includes(newObstacle)) {
