@@ -59,7 +59,18 @@ export default class GameView {
                     spider.x_move = -spider.x_move
 
                 }
+            });
+
+            this.spiders.spiders.forEach(spider2 => {
+                const [x1, y1] = [spider.x, spider.y];
+                const [x2, y2] = [spider2.x, spider2.y];
+                const dist = getHorizontalDistance(x1, y1, x2, y2);
+                if (spider != spider2 && y1 === y2 && dist % 20 != 0) {
+                    console.log(dist);                
+                    spider.y += 20;
+                }
             })
+
         });
 
     }

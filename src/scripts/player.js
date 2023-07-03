@@ -6,7 +6,6 @@ export default class Player {
         this.y = 675;
         this.image = new Image();
         this.image.src = './src/assets/player.png';
-        // this.color = 'green';
         this.bullets = [];
         this.pause = false;
         this.firing = false;
@@ -32,16 +31,13 @@ export default class Player {
                         y: this.y
                     });
                     this.bullets.push(newBullet);
+                    
+                    setTimeout(() => {
+                        this.firing = false;
+                    }, 400);
                 }
-
-                setTimeout(() => {  //validate the use of settimeout
-                    // const newBullet = new Bullet({
-                    //     x: this.x, 
-                    //     y: this.y
-                    // });
-                    // this.bullets.push(newBullet);
-                    this.firing = false;
-                }, 200);
+                
+                
                 
             } else if (e.key == "p") {
                 this.pause = !this.pause;
