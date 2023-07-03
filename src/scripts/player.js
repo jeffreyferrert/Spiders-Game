@@ -8,6 +8,8 @@ export default class Player {
         this.image.src = './src/assets/player.png';
         // this.color = 'green';
         this.bullets = [];
+        this.pause = false;
+        this.firing = false;
 
         this.keyBind();
     }
@@ -23,13 +25,28 @@ export default class Player {
             } else if (e.key == "ArrowDown" || e.key == "s") {
                 if (this.y < 675) this.y += 5;
             } else if (e.key == " ") {
-                const newBullet = new Bullet({
-                    x: this.x, 
-                    y: this.y
-                });
-                this.bullets.push(newBullet);
-            } else if (e.key == "Control") {
-                alert("Game in pause, press OK to continue")
+                if (!this.firing) {
+                    this.firing = true;
+                    const newBullet = new Bullet({
+                        x: this.x, 
+                        y: this.y
+                    });
+                    this.bullets.push(newBullet);
+                }
+
+                setTimeout(() => {  //validate the use of settimeout
+                    // const newBullet = new Bullet({
+                    //     x: this.x, 
+                    //     y: this.y
+                    // });
+                    // this.bullets.push(newBullet);
+                    this.firing = false;
+                }, 200);
+                
+            } else if (e.key == "p") {
+                this.pause = !this.pause;
+                console.log(this.pause);
+                // alert("Game in pause, press OK to continue")
             }
         }, true);
     }

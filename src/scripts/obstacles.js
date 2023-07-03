@@ -8,7 +8,7 @@ export default class Obstacles {
     }
 
     initialize() {
-        for (let i = 0; i < 40; i++) {
+        for (let i = 0; i < 20; i++) {
             const newObstacle = new Obstacle({
                 x: helper_functions.getRandomInt(20, 680),
                 y: helper_functions.getRandomInt(20, 640)

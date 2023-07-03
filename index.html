@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./dist/main.css" />
     <link href="https://fonts.cdnfonts.com/css/sf-atarian-system" rel="stylesheet">
     <script src="./dist/main.js"></script>
-    <link rel="shortcut icon" href="./src/assets/favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./src/assets/alien.png" type="image/x-icon">
     <title>Spider Game</title>
   </head>
 
@@ -16,12 +16,14 @@
     <h1>[WIP] JS Project - Spider</h1>
     <section>
       <div id="instructions">
-        INSTRUCTIONS
-        <!-- <div>PRESS F1 KEY FOR 1 PLAYER
-              F2 KEY FOR 2 PLAYERS </div> -->
-        <div>[CONTROLS WASD OR ARROWS]</div>
-        <div>PRESS SPACEBAR TO SHOOT</div>
-        <div>PRESS CTRL TO PAUSE</div>
+        <div id="inst">INSTRUCTIONS</div>
+        <ul>
+          <li>Shoot to destroy advancing creatures for points</li>
+          <li>Collisions with any creature will destroy you</li>
+          <li>Move with Arrows or WASD keys</li>
+          <li>Hold fire button [SPACE BAR] down for repetitive fire</li>
+          <li>Press CTRL to pause the game</li>
+        </ul>
       </div>
       
       <canvas id="board-canvas" width="700" height="700"></canvas>
@@ -44,5 +46,8 @@
     </section>
     
   </body>
+  <footer>
+    <h1>ABOUT LINKS</h1>
+  </footer>
 
 </html>

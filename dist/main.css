@@ -1,3 +1,58 @@
-h1{color:brown;font-weight:bold}#board-canvas{position:relative;display:block;border:2.5px solid #49fb35;border-radius:1%}#playerscore{font-size:30px;align-items:center}#images{width:20px;height:20px;align-items:center;margin:auto;padding:auto}ul>div{margin:5px}body{background-color:#000;font-family:"SF Atarian System",sans-serif;font-family:"SF Atarian System Extended",sans-serif}section{display:flex;justify-content:space-around;align-items:center;padding-top:30px}#instructions,#score{margin:auto;padding:10px;color:#fff;border:2.5px solid #49fb35;border-radius:2%}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+body {
+  background-color: black;
+  font-family: "SF Atarian System", sans-serif;
+  font-family: "SF Atarian System Extended", sans-serif;
+  font-size: 20px;
+}
 
-/*# sourceMappingURL=main.css.map*/
+h1 {
+  padding-top: 20px;
+  color: brown;
+  font-weight: bold;
+}
+
+#board-canvas {
+  position: relative;
+  display: block;
+  border: 2.5px solid #49fb35;
+  border-radius: 1%;
+  box-shadow: 0 0 5px 0px #96cbe7;
+}
+
+#playerscore {
+  font-size: 30px;
+}
+
+#images {
+  width: 20px;
+  height: 20px;
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+#instructions, #score {
+  margin: auto;
+  padding: 10px;
+  line-height: 1;
+  color: white;
+  border: 2.5px solid #49fb35;
+  border-radius: 2%;
+  width: 400px;
+  text-align: center;
+}
+
+#score {
+  width: 350px;
+}
+
+li {
+  line-height: 1.5;
+  text-align: justify;
+}
