@@ -3,7 +3,7 @@ import Spiders from "./spiders.js";
 import Player from './player';
 import Obstacles from "./obstacles.js";
 import Pause from "./pause.js";
-import GameOver from "./gameOver.js";
+import GameOver from "./gameover.js";
 import { getDistance, getHorizontalDistance } from "./helper_functions";
 
 export default class GameView {

@@ -13,7 +13,7 @@ export default class StartGame{
         ctx.textAlign = "center";
         ctx.fillText("SPIDERS", 350, 400);
         ctx.font = "35px SF Atarian System";
-        ctx.fillText("Press 'p' to resume game", 350, 440);
+        ctx.fillText("Press 'Enter' to start your game", 350, 440);
         // ctx.fillRect(0, 0, 700, 700);
     }
 }

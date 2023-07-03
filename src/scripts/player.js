@@ -36,9 +36,6 @@ export default class Player {
                         this.firing = false;
                     }, 200);
                 }
-                
-                
-                
             } else if (e.key == "p") {
                 this.pause = !this.pause;
             }
