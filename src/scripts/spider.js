@@ -2,7 +2,7 @@ export default class Spider{
     constructor (options) {
         this.x = options.x;
         this.y = options.y;
-        this.x_move = 5 * options.direction;
+        this.x_move = 2 * options.direction;
         this.image = new Image();
         this.image.src = './src/assets/centipede.png';
 
