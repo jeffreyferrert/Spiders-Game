@@ -1,7 +1,6 @@
 # Spiders-Game
 ## URL: https://jeffreyferrert.github.io/Spiders-Game/
 ![Spider Landing Page](./src/assets/image.png)
-
 # Description
 Spider is a replica of the Atari game Centipede (1982). This is a fixed shooter arcade video game and the objective is to shoot all the spiders that comes from the top to the bottom. The board fill with random blocks and the speed of the game will increase as the game progress. 
 
