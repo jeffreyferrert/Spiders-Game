@@ -29,7 +29,6 @@ export default class Spiders {
     }
 
     draw(ctx) {
-        // console.log(this.spiders.length);
         this.spiders.forEach(spider => {
             if (spider.x > 680 || spider.x < 0) {
                 spider.update();

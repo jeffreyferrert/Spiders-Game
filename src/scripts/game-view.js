@@ -45,7 +45,7 @@ export default class GameView {
                     this.points += 10;
                     if (this.spiders.spiders.length === 0) {
                         this.points += 100;
-                        alert("LEVEL PASS");  // pass recursive game() with variables for next level
+                        alert("LEVEL PASS"); 
                     }
                 } 
             })
