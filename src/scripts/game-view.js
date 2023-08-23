@@ -4,6 +4,7 @@ import Player from './player';
 import Obstacles from "./obstacles.js";
 import Pause from "./pause.js";
 import GameOver from "./gameover.js";
+import GameWin from "./gamewin.js";
 import { getDistance, getHorizontalDistance } from "./helper_functions";
 
 export default class GameView {
@@ -15,6 +16,7 @@ export default class GameView {
         this.obstacles = new Obstacles();
         this.pause = new Pause();
         this.gameove = new GameOver();
+        this.gamewin = new GameWin();
         this.points = 0;
         this.gamestatus = "active"
         this.userpoints = document.getElementById("playerscore");
@@ -45,7 +47,7 @@ export default class GameView {
                     this.points += 10;
                     if (this.spiders.spiders.length === 0) {
                         this.points += 100;
-                        alert("LEVEL PASS"); 
+                        this.gamestatus = "win"
                     }
                 } 
             })
@@ -96,6 +98,8 @@ export default class GameView {
                 this.pause.draw(ctx);
         } else if (this.gamestatus === "over") {
             this.gameove.draw(ctx);
+        } else if (this.gamestatus === "win") {
+            this.gamewin.draw(ctx);
         } else {
             this.board.draw(ctx);
             this.board2.drawLine(ctx);

@@ -1,4 +1,4 @@
-export default class GameOver{
+export default class GameWin{
     constructor(options){
         this.color = 'brown';
         this.image = new Image();
@@ -11,9 +11,10 @@ export default class GameOver{
         ctx.fillStyle = this.color;
         ctx.font = "48px SF Atarian System";
         ctx.textAlign = "center";
-        ctx.fillText("Game Over", 350, 400);
+        ctx.fillText("Game Win", 350, 400);
         ctx.font = "35px SF Atarian System";
-        ctx.fillText("Press 'ENTER' to restart the game", 350, 440);
+        ctx.fillText("Press 'ENTER' to start a new game", 350, 440);
+        // ctx.fillRect(0, 0, 700, 700);
     }
 }
 

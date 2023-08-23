@@ -5,7 +5,6 @@ export default class Spider{
         this.x_move = 2 * options.direction;
         this.image = new Image();
         this.image.src = './src/assets/centipede.png';
-
     }
 
     draw = function(ctx) {

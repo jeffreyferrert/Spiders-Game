@@ -9,7 +9,6 @@ export default class Player {
         this.bullets = [];
         this.pause = false;
         this.firing = false;
-
         this.keyBind();
     }
 
